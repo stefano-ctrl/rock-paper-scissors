@@ -1,2 +1,2 @@
 # rock-paper-scissors
-Console game
+Project of the game
