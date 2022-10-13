@@ -8,7 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src='script.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+   
 </head>
 <style>
     * {
@@ -31,7 +35,7 @@
 
     h1 {
         margin: auto;
-        width: 300px;
+        width: 400px;
         padding-right: 70px;
         padding-top: 30px;
         margin-top: 20px;
@@ -44,15 +48,53 @@
         margin-top: -50px;
     }
 
+   ul li  {
+       list-style: none;
+       font-size: 40px;
+       font-family: 'Roboto', sans-serif;
+       padding-top: 30px;
+       color: yellow;
+   }
+   
+   ul {
+       display: flex;
+       width: 100%;
+       justify-content: space-around;
+   }
+
+   .rock-score {
+    
+       padding-left: 30px;
+   }
+
+   .scissors-score {
+
+       padding-right: 50px;
+   }
+
+   li div {
+       text-align: center;
+   }
+
 </style>
 <body>
     <h1>Let's Battle!</h1>
     <div class='img-container'>
-      <img src='rock.png'></img>
+      <img class='rock' src='rock.png'></img>
       <img class='paper' src='paper.png'></img>
-      <img src='scissors.png'></img>
+      <img class='scissors' src='scissors.png'></img>
     </div>
- 
-      <!-- Test -->
+    
+    <div class='score-container'>
+        <ul>
+            <li class='rock-score'>Rock<div>0</div></li>
+            <li class='paper-score'>Paper<div>0</div></li>
+            <li class='scissors-score'>Scissors<div>0</div></li>  
+        </ul>
+    
+    </div>
+
+    <script src='script.js'></script>
+     
 </body>
 </html>

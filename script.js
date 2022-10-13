@@ -1,4 +1,4 @@
-function computerPlay() {
+/*function computerPlay() {
     let random = Math.floor(Math.random() * 12);
 
     if (random < 4) {
@@ -106,3 +106,11 @@ console.log(game());
 
 // add an alert to determine who won round live
 // make sure that game is determined at who first wins 5 rounds
+
+*/
+
+let test = document.querySelector('.paper');
+
+test.addEventListener('click', () => {
+    console.log('fuck you js');
+})
