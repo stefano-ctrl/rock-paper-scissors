@@ -1,4 +1,4 @@
-/*function computerPlay() {
+function computerPlay() {
     let random = Math.floor(Math.random() * 12);
 
     if (random < 4) {
@@ -14,11 +14,24 @@
 
 };
 
+let pickHand = document.querySelectorAll('div > img');
+
+
+
+let  playerSelection = pickHand.forEach(hand => {                                
+    hand.addEventListener('click', () => {
+         hand.className;
+    })
+});
+
 // console.log(computerPlay());
 
 function playRound(playerSelection, computerSelection) {
     
+   
+  
 
+ 
     if (playerSelection == 'rock' && computerSelection == 'scissors') {
         let result = 'You win motherfucker!';
         return result;
@@ -49,7 +62,8 @@ function playRound(playerSelection, computerSelection) {
     };
        
     };
-
+ 
+    
 
 // console.log(playRound(playerSelection, computerSelection));
 
@@ -57,11 +71,11 @@ function playRound(playerSelection, computerSelection) {
 // create new function game and put function play round inside function game
 // after the loop return final score; let finalScore = `${scorePlayer} to ${scoreComputer}`;
 
-
-
+/*
 
 function game() {
-  
+    
+
     let scorePlayer = 0;
     let scoreComputer = 0;
     //let score = `${scorePlayer} to ${scoreComputer}`;
@@ -104,13 +118,11 @@ function game() {
 console.log(game());
 
 
+
+
+
 // add an alert to determine who won round live
 // make sure that game is determined at who first wins 5 rounds
 
+
 */
-
-let test = document.querySelector('.paper');
-
-test.addEventListener('click', () => {
-    console.log('fuck you js');
-})

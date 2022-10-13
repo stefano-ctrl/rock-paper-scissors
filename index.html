@@ -30,7 +30,7 @@
 
     .img-container {
         text-align: center;
-        margin-top: 100px;
+    
     }
 
     h1 {
@@ -62,15 +62,6 @@
        justify-content: space-around;
    }
 
-   .rock-score {
-    
-       padding-left: 30px;
-   }
-
-   .scissors-score {
-
-       padding-right: 50px;
-   }
 
    li div {
        text-align: center;
@@ -79,20 +70,22 @@
 </style>
 <body>
     <h1>Let's Battle!</h1>
+
+    <div class='score-container'>
+        <ul>
+            <li>Player<div class='player-score'>0</div></li>
+            <li>Computer<div class='computer-score'>0</div></li>
+        </ul>
+    
+    </div>
+
     <div class='img-container'>
       <img class='rock' src='rock.png'></img>
       <img class='paper' src='paper.png'></img>
       <img class='scissors' src='scissors.png'></img>
     </div>
     
-    <div class='score-container'>
-        <ul>
-            <li class='rock-score'>Rock<div>0</div></li>
-            <li class='paper-score'>Paper<div>0</div></li>
-            <li class='scissors-score'>Scissors<div>0</div></li>  
-        </ul>
     
-    </div>
 
     <script src='script.js'></script>
      
