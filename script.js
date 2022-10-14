@@ -14,113 +14,204 @@ function computerPlay() {
 
 };
 
-
-
-playerSelectionList = document.querySelectorAll('div > img');
+// implement set timeout msg to display message only 3 seconds. 
+// you need to work on the button images as their range is too wide and they can be clicked from the whole page
+let playerSelectionList = document.querySelectorAll('div > img');
 let playerSelectionArr = Array.from(playerSelectionList);
 
 let scorePlayer = document.querySelector('.player-score');
 let scoreComputer = document.querySelector('.computer-score');
 
 let exclamation =  document.querySelector('.result-text');
-
-// implement set timeout msg to display message only 3 seconds. 
-// you need to work on the button images as their range is too wide and they can be clicked from the whole page
-
-
-let pickHand= playerSelectionArr.forEach(hand => {                                
+ 
+  playerSelectionArr.forEach(hand => {                                
     hand.addEventListener('click', function playRound(playerSelection, computerSelection){
           playerSelection = hand.className;
           computerSelection = computerPlay();
-
-          
            
-           if (playerSelection == 'rock' && computerSelection == 'scissors') {
+         if (playerSelection == 'rock' && computerSelection == 'scissors') {
             let txt = document.createElement('p');
             txt.textContent = 'Marvelous win!';
-            return  exclamation.appendChild(txt);
+            exclamation.appendChild(txt);
+            
+            return setTimeout(() => {
+              
+                //  removes element from DOM
+                txt.style.display = 'none';
+              
+                //  hides element (still takes up space on page)
+                // box.style.visibility = 'hidden';
+              }, 2000); 
             
     
            } else if (playerSelection == 'paper' && computerSelection == 'rock') {
             let txt = document.createElement('p');
             txt.textContent = 'UNBELIEVABLE! Well done!';
-            return  exclamation.appendChild(txt);
+            exclamation.appendChild(txt);
+
+            return setTimeout(() => {
+                txt.style.display = 'none';
+            }, 2000);
             
         } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
             let txt = document.createElement('p');
             txt.textContent = 'Winner Winner Chicken Dinner!';
-            return  exclamation.appendChild(txt);
+            exclamation.appendChild(txt);
+
+            return setTimeout(() => {
+                txt.style.display = 'none';
+            }, 2000);
 
         } else if (playerSelection == 'rock' && computerSelection == 'paper') {
             let txt = document.createElement('p');
             txt.textContent = 'Sometimes you lose as well';
-            return  exclamation.appendChild(txt);
+            exclamation.appendChild(txt);
+
+            return setTimeout(() => {
+                txt.style.display = 'none';
+            }, 2000);
     
         } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
             let txt = document.createElement('p');
             txt.textContent = 'Might be too good for you';
-            return  exclamation.appendChild(txt);
+            exclamation.appendChild(txt);
+
+            return setTimeout(() => {
+                txt.style.display = 'none';
+            }, 2000);
 
         } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
             let txt = document.createElement('p');
             txt.textContent = 'Better try again my friend';
-            return  exclamation.appendChild(txt);
+            exclamation.appendChild(txt);
+
+            return setTimeout(() => {
+                txt.style.display = 'none';
+            }, 2000);
+
         } else {
             let txt = document.createElement('p');
             txt.textContent = 'Draw. Draw. Again please';
-            return  exclamation.appendChild(txt);
-         
+            exclamation.appendChild(txt);
+            
+            return setTimeout(() => {
+                txt.style.display = 'none';
+            }, 2000);
         };
             
         }
               )
-            });
+            }); 
 
-
-
-
-
-// console.log(computerPlay());playerSelection.forEach(hand => {                                
- 
-
-function playRound(playerSelection, computerSelection) {
-
-
-   
-    if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        let result = 'You win motherfucker!';
-        console.log(result);
-
-       } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-        result = 'Winner Winner Chicken Dinner';
-        console.log(result);
         
-    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-        result = 'You won Mate!';
-        console.log(result);
 
-    } else if (playerSelection == 'rock' && computerSelection == 'paper') {
-        result = 'Next time you\'ll have more luck';
-        console.log(result);
+    /*    
+            
+            function playRound(playerSelection, computerSelection){
+                 
+                playerSelectionArr.forEach(hand => {                                
+                    hand.addEventListener('click', () => {
+                          playerSelection = hand.className;
+                          computerSelection = computerPlay();
+                
+                if (playerSelection == 'rock' && computerSelection == 'scissors') {
+                  let txt = document.createElement('p');
+                  txt.textContent = 'Marvelous win!';
+                  exclamation.appendChild(txt);
+                  
+                  return setTimeout(() => {
+                    
+                      //  removes element from DOM
+                      txt.style.display = 'none';
+                    
+                      //  hides element (still takes up space on page)
+                      // box.style.visibility = 'hidden';
+                    }, 2000); 
+                  
+          
+                 } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+                  let txt = document.createElement('p');
+                  txt.textContent = 'UNBELIEVABLE! Well done!';
+                  exclamation.appendChild(txt);
+      
+                  return setTimeout(() => {
+                      txt.style.display = 'none';
+                  }, 2000);
+                  
+              } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+                  let txt = document.createElement('p');
+                  txt.textContent = 'Winner Winner Chicken Dinner!';
+                  exclamation.appendChild(txt);
+      
+                  return setTimeout(() => {
+                      txt.style.display = 'none';
+                  }, 2000);
+      
+              } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+                  let txt = document.createElement('p');
+                  txt.textContent = 'Sometimes you lose as well';
+                  exclamation.appendChild(txt);
+      
+                  return setTimeout(() => {
+                      txt.style.display = 'none';
+                  }, 2000);
+          
+              } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+                  let txt = document.createElement('p');
+                  txt.textContent = 'Might be too good for you';
+                  exclamation.appendChild(txt);
+      
+                  return setTimeout(() => {
+                      txt.style.display = 'none';
+                  }, 2000);
+      
+              } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+                  let txt = document.createElement('p');
+                  txt.textContent = 'Better try again my friend';
+                  exclamation.appendChild(txt);
+      
+                  return setTimeout(() => {
+                      txt.style.display = 'none';
+                  }, 2000);
+      
+              } else {
+                  let txt = document.createElement('p');
+                  txt.textContent = 'Draw. Draw. Again please';
+                  exclamation.appendChild(txt);
+                  
+                  return setTimeout(() => {
+                      txt.style.display = 'none';
+                  }, 2000);
+              };
+            });
+        })
+      
+              };
 
-    } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-        result = 'Unlucky';
-        console.log(result);
-
-    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-        result = 'You should better quit';
-        console.log(result);
-    } else {
-        result = 'draw. do it again';
-        console.log(result);
-     
-    };
+              playRound(playerSelection, computerSelection);
+       // trying to make use of function playRound with addEvent listener; 
+             
+      
+              
+                                           
+   /*
+          
+              
+              playerSelection = hand.className;
+              computerSelection = computerPlay();
+        
+  */
     
-    };
+         
+
+                        
+ 
+
+
+
+ 
  
     
-
-// console.log(playRound(playerSelection, computerSelection));
 
 
 // create new function game and put function play round inside function game
