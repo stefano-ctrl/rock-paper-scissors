@@ -19,12 +19,16 @@ function computerPlay() {
 let playerSelectionList = document.querySelectorAll('div > img');
 let playerSelectionArr = Array.from(playerSelectionList);
 
+let paperButton = document.querySelector('.paper');
+let rockButton = document.querySelector('.rock');
+let scissorsButton = document.querySelector('.scissors');
+
 let scorePlayer = document.querySelector('.player-score');
 let scoreComputer = document.querySelector('.computer-score');
 
 let exclamation =  document.querySelector('.result-text');
  
-  playerSelectionArr.forEach(hand => {                                
+  /* playerSelectionArr.forEach(hand => {                                
     hand.addEventListener('click', function playRound(playerSelection, computerSelection){
           playerSelection = hand.className;
           computerSelection = computerPlay();
@@ -102,19 +106,16 @@ let exclamation =  document.querySelector('.result-text');
         }
               )
             }); 
-
+         */  
         
-
-    /*    
             
             function playRound(playerSelection, computerSelection){
                  
-                playerSelectionArr.forEach(hand => {                                
-                    hand.addEventListener('click', () => {
-                          playerSelection = hand.className;
-                          computerSelection = computerPlay();
-                
-                if (playerSelection == 'rock' && computerSelection == 'scissors') {
+         
+              
+
+              
+                if (playerSelection == rockButton.className && computerSelection == 'scissors') {
                   let txt = document.createElement('p');
                   txt.textContent = 'Marvelous win!';
                   exclamation.appendChild(txt);
@@ -129,7 +130,7 @@ let exclamation =  document.querySelector('.result-text');
                     }, 2000); 
                   
           
-                 } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+                 } else if (playerSelection == paperButton.className && computerSelection == 'rock') {
                   let txt = document.createElement('p');
                   txt.textContent = 'UNBELIEVABLE! Well done!';
                   exclamation.appendChild(txt);
@@ -138,7 +139,7 @@ let exclamation =  document.querySelector('.result-text');
                       txt.style.display = 'none';
                   }, 2000);
                   
-              } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+              } else if (playerSelection == scissorsButton.className && computerSelection == 'paper') {
                   let txt = document.createElement('p');
                   txt.textContent = 'Winner Winner Chicken Dinner!';
                   exclamation.appendChild(txt);
@@ -147,7 +148,7 @@ let exclamation =  document.querySelector('.result-text');
                       txt.style.display = 'none';
                   }, 2000);
       
-              } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+              } else if (playerSelection == rockButton.className && computerSelection == 'paper') {
                   let txt = document.createElement('p');
                   txt.textContent = 'Sometimes you lose as well';
                   exclamation.appendChild(txt);
@@ -156,7 +157,7 @@ let exclamation =  document.querySelector('.result-text');
                       txt.style.display = 'none';
                   }, 2000);
           
-              } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+              } else if (playerSelection == paperButton.className && computerSelection == 'scissors') {
                   let txt = document.createElement('p');
                   txt.textContent = 'Might be too good for you';
                   exclamation.appendChild(txt);
@@ -165,7 +166,7 @@ let exclamation =  document.querySelector('.result-text');
                       txt.style.display = 'none';
                   }, 2000);
       
-              } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+              } else if (playerSelection == scissorsButton.className && computerSelection == 'rock') {
                   let txt = document.createElement('p');
                   txt.textContent = 'Better try again my friend';
                   exclamation.appendChild(txt);
@@ -183,15 +184,28 @@ let exclamation =  document.querySelector('.result-text');
                       txt.style.display = 'none';
                   }, 2000);
               };
-            });
-        })
-      
-              };
+                 }
+                
+                 paperButton.addEventListener('click', () => {
+                     playRound(paperButton.className, computerPlay());
+                 });
 
-              playRound(playerSelection, computerSelection);
+                 rockButton.addEventListener('click', () => {
+                     playRound(rockButton.className, computerPlay());
+                 });
+
+                 scissorsButton.addEventListener('click', () => {
+                     playRound(scissorsButton.className, computerPlay());
+                 })
+             
+         
+                      
        // trying to make use of function playRound with addEvent listener; 
              
-      
+       //think instead of having all buttons connected to one result to have one event listener per button/image
+       // create rock, paper and scissors button selecting them with a single document query selector instead of document query selector all and then compare them to the if solution inside play round function
+        
+   
               
                                            
    /*
