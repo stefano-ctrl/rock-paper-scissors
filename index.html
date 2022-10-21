@@ -20,7 +20,7 @@
         margin: 0;
     }
     body {
-        background-color: red;
+        background-image: url('marble-bg.png');
     }
     img {
         width: 300px;
@@ -50,7 +50,14 @@
     }
     
 
+  button {
+      display: block;
+  }
 
+  button:hover {
+      background-color: lightgray;
+      box-shadow: 5px 10px darkgrey;
+  }
        
    
    .score-container {
@@ -66,14 +73,22 @@
        font-size: 40px;
        font-family: 'Roboto', sans-serif;
        padding: 30px;
-       color: yellow;
+    
        margin: 50px;
        border: 3px black solid;
    }
 
+   .player-container {
+       color: rgb(153, 13, 13);
+   }
+
+   .computer-container {
+       color: midnightblue;
+   }
+
    .result-text {
        font-size: 28px;
-       color: white;
+       color: black;
        text-align: center;
    }
 
@@ -87,15 +102,15 @@
 
   
 <div class='img-container'>
-    <div class='button'>
+    <button class='button'>
       <img src='rock.png' alt ='rock'/>
-    </div>
-    <div class ='button'> 
+    </button>
+    <button class ='button'> 
       <img src='paper.png' alt ='paper'/>
-    </div>
-    <div class='button'> 
+    </button>
+    <button class='button'> 
       <img src='scissors.png' alt ='scissors'/>
-    </div>
+    </button>
 </div>
 
 <div class='score-container'>

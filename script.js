@@ -11,7 +11,10 @@ let computerSelection;
 let playerSelection; 
 
 let exclamation = document.querySelector('.exclamation-text');
+let resultText = document.querySelector('.result-text');
 let arrButtons = document.querySelectorAll('img');
+
+let buttons = document.querySelectorAll('button');
 
 let pointsComputer = 0; 
 let pointsPlayer = 0; 
@@ -32,37 +35,25 @@ function computerPlay() {
 
 };
 
-function endGame() {
-    if (pointsPlayer == 5) {
-        
-        exclamation.textContent = 'The Final Winner is Player!';
-    
 
-    } else if (pointsComputer == 5) {
-       
-        exclamation.textContent = 'The Final Winner is Computer!';
-
-    }
-}
 
 function updateScorePlayer() {
     if(pointsPlayer != 5) {
         pointsPlayer++;
+     scorePlayer.textContent = pointsPlayer;
     }
-    scorePlayer.textContent = pointsPlayer;
 
-    if (pointsPlayer >= 5 && pointsComputer < 5) {
+    else if (pointsPlayer == 5) {
         return endGame();
     }
-}
+};
 
 function updateScoreComputer() {
     if(pointsComputer != 5) {
         pointsComputer++;
-    }
-    scoreComputer.textContent = pointsComputer;
-    
-    if (pointsComputer >= 5 && pointsPlayer <= 5) {
+        scoreComputer.textContent = pointsComputer;
+    } 
+    else if (pointsComputer == 5) {
         return endGame();
     }
 }
@@ -78,10 +69,6 @@ arrButtons.forEach((hand) => {
     hand.addEventListener('click', () => {
     let playerSelection = hand.alt.toLowerCase();
     playRound(playerSelection, computerSelection);
-  
-    if (scorePlayer == 5 || scoreComputer == 5) {
-     return;
- }
     
     });
 });
@@ -149,6 +136,26 @@ function playRound(playerSelection, computerSelection) {
 
 };
 
-game();
 
-// things to work on. Create new button to restart game, and make sure once one player wins count points is stop and event stops firing
+
+function endGame() {
+    if (pointsPlayer == 5) {
+        exclamation.remove();
+        resultText.textContent = 'The Final Winner is Player!';
+
+        return buttons.forEach(button => {
+            button.removeEventListener('click', game);
+    })
+
+    } else if (pointsComputer == 5) {
+        
+        exclamation.remove();
+        resultText.textContent = 'The Final Winner is Computer!';
+        
+        return buttons.forEach(button => {
+            button.removeEventListener('click', game);
+    })
+}
+}
+
+game();
