@@ -1,4 +1,4 @@
-
+let header = document.querySelector('h1')
 
 let scorePlayer = document.querySelector('.player-score');
 let scoreComputer = document.querySelector('.computer-score');
@@ -15,9 +15,13 @@ let resultText = document.querySelector('.result-text');
 let arrButtons = document.querySelectorAll('img');
 
 let buttons = document.querySelectorAll('button');
+let imagesContainer = document.querySelector('.img-container');
+let footer = document.querySelector('footer');
 
 let pointsComputer = 0; 
 let pointsPlayer = 0; 
+
+
 
 function computerPlay() {
     let random = Math.floor(Math.random() * 12);
@@ -35,25 +39,28 @@ function computerPlay() {
 
 };
 
+function removeContainer () {
+    document.body.removeChild(imagesContainer);
+}
 
 
 function updateScorePlayer() {
     if(pointsPlayer != 5) {
-        pointsPlayer++;
-     scorePlayer.textContent = pointsPlayer;
+        ++pointsPlayer;
+     return scorePlayer.textContent = pointsPlayer;
     }
 
-    else if (pointsPlayer == 5) {
+    else if (pointsPlayer == 5 && pointsComputer < 5) {
         return endGame();
     }
 };
 
 function updateScoreComputer() {
     if(pointsComputer != 5) {
-        pointsComputer++;
-        scoreComputer.textContent = pointsComputer;
+        ++pointsComputer;
+      return  scoreComputer.textContent = pointsComputer;
     } 
-    else if (pointsComputer == 5) {
+    else if (pointsComputer == 5 && pointsPlayer < 5) {
         return endGame();
     }
 }
@@ -94,7 +101,7 @@ function playRound(playerSelection, computerSelection) {
             txt.style.display = 'none';
             
         
-          }, 2000); 
+          }, 1000); 
 
          ;
     }
@@ -111,7 +118,7 @@ function playRound(playerSelection, computerSelection) {
                     txt.style.display = 'none';
                    
                  
-                  }, 2000); 
+                  }, 1000); 
                   
                updateScorePlayer();
                
@@ -128,7 +135,7 @@ function playRound(playerSelection, computerSelection) {
                  setTimeout(() => {           
                     txt.style.display = 'none';
             
-                  }, 2000); 
+                  }, 1000); 
 
                   updateScoreComputer();
              }
@@ -139,23 +146,27 @@ function playRound(playerSelection, computerSelection) {
 
 
 function endGame() {
-    if (pointsPlayer == 5) {
+    
+        removeContainer();
         exclamation.remove();
+
+        let playAgainButton = document.createElement('button');
+        playAgainButton.setAttribute('style', 'width: 100px; height: 60px; background-color: white; color: red; border-radius: 3%; border: 2px solid black; text-align: center; margin-top: 50px');
+        playAgainButton.textContent = 'Play Again';
+        footer.appendChild(playAgainButton);
+        playAgainButton.addEventListener('click', () => location.reload());
+        
+        if (pointsPlayer == 5) {
         resultText.textContent = 'The Final Winner is Player!';
-
-        return buttons.forEach(button => {
-            button.removeEventListener('click', game);
-    })
-
-    } else if (pointsComputer == 5) {
+        header.textContent = 'Congratulations!';
+        }  else if (pointsComputer == 5) {
         
-        exclamation.remove();
         resultText.textContent = 'The Final Winner is Computer!';
-        
-        return buttons.forEach(button => {
-            button.removeEventListener('click', game);
-    })
-}
+        header.textContent = 'Unlucky, maybe next time'; 
+    }
 }
 
 game();
+
+// trying to use remove event listener to stop updating points after players reach 5. 
+// add a button to reset game 
